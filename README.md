@@ -22,6 +22,13 @@ k6 run performance/products.js
 k6 run performance/customers.js
 ```
 
+Para validar a configuração dos cenários sem executar a carga:
+
+```powershell
+k6 inspect performance/products.js
+k6 inspect performance/customers.js
+```
+
 Os testes usam `admin/admin` por padrão. Para outro ambiente:
 
 ```powershell
