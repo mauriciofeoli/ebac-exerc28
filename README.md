@@ -1,8 +1,26 @@
-# Exercício de performance com k6
+﻿# Testes de Performance com k6 - EBAC
 
-Testes de performance dos endpoints GraphQL de produtos e clientes da API EBAC.
+Repositório dedicado a testes de desempenho para a API GraphQL da EBAC.
 
-## API
+## Objetivo
+
+Avaliar o comportamento da API sob carga, medir tempos de resposta e validar a estabilidade dos endpoints de produtos e clientes.
+
+## Tecnologias
+
+- k6
+- JavaScript
+- GraphQL
+- Node.js
+
+## Pré-requisitos
+
+- Node.js
+- npm
+- k6 instalado
+- Docker (se for subir a base local)
+
+## API local
 
 ```powershell
 cd api
@@ -13,26 +31,32 @@ npm run db:init
 npm start
 ```
 
-## Testes
+## Execução dos testes
 
-Com a API em execução, rode na raiz do repositório:
+Na raiz do projeto:
 
 ```powershell
 k6 run performance/products.js
 k6 run performance/customers.js
 ```
 
-Para validar a configuração dos cenários sem executar a carga:
+Para inspecionar os cenários sem executar a carga:
 
 ```powershell
 k6 inspect performance/products.js
 k6 inspect performance/customers.js
 ```
 
-Os testes usam `admin/admin` por padrão. Para outro ambiente:
+## Variáveis de ambiente
 
 ```powershell
 $env:BASE_URL="http://localhost:3000/graphql"
 $env:API_USERNAME="admin"
 $env:API_PASSWORD="admin"
 ```
+
+## Estrutura do projeto
+
+- `api/` — backend de apoio;
+- `performance/` — scripts de testes com k6;
+- `tools/` — utilitários e materiais auxiliares.
